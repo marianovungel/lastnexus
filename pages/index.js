@@ -10,7 +10,7 @@ export default function Home() {
 
   const createAndJoin = () => {
     const roomId = uuidv4()
-    router.push(`/${roomId}`)
+    router.push(`/RoomId/${roomId}`)
   }
 
   const joinRoom = () => {
