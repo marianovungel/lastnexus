@@ -23,23 +23,27 @@ export default function ArtigoCard() {
         }
     }
 
-    const getData = async ()=>{
-        await fetch(api_base_url + "/docxs", {
-          mode:"cors",
-          method: "POST",
-          headers:{
-            "Content-Type":"application/json",
-          },
-          body: JSON.stringify({
+    const getData = async () => {
+    if (!currentUser || !currentUser.id) {
+        console.error("Current user not found");
+        return;
+    }
+
+    await fetch(api_base_url + "/docxs", {
+        mode: "cors",
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
             userId: currentUser.id,
-          }),
-        })
-        .then((res)=> res.json())
-          .then((data)=>{
-              setDatas(data.docs)
-            //   console.log(data.docs)
-          })
-        }
+        }),
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        setDatas(data.docs);
+    });
+};
 
         // 1- Não Foi Aceito
         // 2- Foi Aceito
@@ -78,14 +82,16 @@ export default function ArtigoCard() {
           })
         }
 
-        useEffect(()=>{
-            getData()
-          }, [fatchData])
+        useEffect(() => {
+          if (currentUser) {
+              getData();
+          }
+      }, [currentUser, fatchData]);
 
   return (
     <>
         {datas ? datas?.map((dt)=>(
-            <div key={dt?._id} className='w-full flex flex-col items-center justify-start border-1 border-gray-300 rounded-md p-3 mb-3'>
+            <div key={dt?._id} className='w-full flex flex-col items-center justify-start border-2 border-gray-100 rounded-md p-3 mb-3'>
                 <div id='rejectedContainer' className='w-full mx-auto flex flex-row items-center justify-between bg-blend-lighten gap-3 py-3'>
                     <div className='flex flex-row items-center justify-start gap-3 px-3'>
                         <img className='w-20 h-20 rounded-full object-cover' src={dt?.autorPic} alt="" />

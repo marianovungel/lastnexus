@@ -8,6 +8,8 @@ import { useUserStore } from '../../lib/userStore';
 import Swal from 'sweetalert2';
 import {db} from '../../lib/firebase'
 import { arrayUnion, collection, doc,  serverTimestamp, setDoc, updateDoc } from 'firebase/firestore'
+import Image from 'next/image';
+import Logo from '@/images/NEXUS.png';
 
 export default function Solicitation({ data }) {
     const { currentUser, superUser } = useUserStore()
@@ -162,7 +164,7 @@ export default function Solicitation({ data }) {
   return (
     <div id='rejectedContainer' className='w-full flex flex-row items-center justify-between bg-blend-lighten gap-3 py-3 hover:bg-cyan-50'>
         <div className='flex flex-row items-center justify-start gap-3 px-3'>
-            <img className='w-20 h-20 rounded-full' src="./image/NEXUS.png" alt="" />
+            <Image src={Logo} alt='Logo Nexus plataform' className='w-20 h-20 rounded-full object-cover' />
             <div className='flex flex-col items-start justify-center gap-1'>
                 <b className='font-medium'>{data.usernotifyName}</b>
                 <p>{data.text}</p>

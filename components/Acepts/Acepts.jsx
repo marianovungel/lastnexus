@@ -2,6 +2,8 @@ import React from 'react'
 import { MdArticle } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
 import { useRouter } from "next/router";
+import Image from 'next/image';
+import Logo from '@/images/NEXUS.png';
 
 export default function Acepts({ data }) {
   const router = useRouter()
@@ -11,7 +13,7 @@ export default function Acepts({ data }) {
   return (
     <div id='rejectedContainer' className='w-full flex flex-row items-center justify-between bg-blend-lighten gap-3 py-3 hover:bg-cyan-50'>
         <div className='flex flex-row items-center justify-start gap-3 px-3'>
-            <img className='w-20 h-20 rounded-full' src="./image/NEXUS.png" alt="" />
+            <Image src={Logo} alt='Logo Nexus plataform' className='w-20 h-20 rounded-full object-cover' />
             <div className='flex flex-col items-start justify-center gap-1'>
                 <b className='font-medium'>{data?.usernotifyName}</b>
                 <p>{data?.text}</p>
