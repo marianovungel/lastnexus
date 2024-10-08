@@ -1,4 +1,3 @@
-import  './AddUser.css'
 import {db} from '../../../lib/firebase'
 import { arrayUnion, collection, doc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
 import { useState } from 'react'

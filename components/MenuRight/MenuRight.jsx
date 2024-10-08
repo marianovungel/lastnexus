@@ -1,13 +1,14 @@
+"use client";
 import React from 'react'
-import './MenuRight.css'
-// import { FaUserCircle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
 import { useUserStore } from "../../lib/userStore";
+import { useRouter } from 'next/router';
 
 const AvatarULR = "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
 
 export default function MenuRight() {
   const { currentUser } = useUserStore()
+  const router = useRouter()
+
   return (
     <div className="dropdown">
     <button className="dropbtn">
@@ -15,10 +16,10 @@ export default function MenuRight() {
       <img className='w-8 h-8 rounded-full object-cover' src={currentUser?.avatar ? currentUser?.avatar : AvatarULR } alt="" />
       </button>
     <div className="dropdown-content">
-        <Link to="/profile#sobre">Meu Perfil</Link>
-        <Link to="/profile#colaborar">Novo Artigo</Link>
-        <Link to="/profile#artigo">Meus Artigos</Link>
-        <Link to="/profile#grupo">Meus Grupos</Link>
+        <div onClick={()=> router.push("/profile#sobre")}>Meu Perfil</div>
+        <div onClick={()=> router.push("/profile#colaborar")}>Novo Artigo</div>
+        <div onClick={()=> router.push("/profile#artigo")}>Meus Artigos</div>
+        <div onClick={()=> router.push("/profile#grupo")}>Meus Grupos</div>
     </div>
     </div>
   )

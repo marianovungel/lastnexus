@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import './ChatList.css'
 import { IoSearchSharp } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa6";
 import { TiMinus } from "react-icons/ti";

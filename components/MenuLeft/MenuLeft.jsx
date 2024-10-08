@@ -1,10 +1,12 @@
+"use client";
 import React, { useState } from 'react'
-import './MenuLeft.css'
-import { Link } from 'react-router-dom';
 import { RiMenuFold3Line2, RiMenuFill  } from "react-icons/ri";
+import { useRouter } from 'next/router';
 
 export default function MenuLeft() {
     const [openVariable, setopenVariable] = useState(false)
+    const router = useRouter()
+
     function openNav() {
         setopenVariable(true)
         document.getElementById("mySidebar").style.width = "150px";
@@ -32,9 +34,9 @@ export default function MenuLeft() {
   return (
     <div className='flex items-center'>
         <div id="mySidebar" className="sidebar">
-            <Link to="/">Home</Link>
-            <Link to="/feed">Feed</Link>
-            <Link to="/chat">Chat</Link>
+            <div onClick={()=> router.push("/")}>Home</div>
+            <div onClick={()=> router.push("/feed")}>Feed</div>
+            <div onClick={()=> router.push("/chat")}>Chat</div>
         </div>
 
         <div id="main">

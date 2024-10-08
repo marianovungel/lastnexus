@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { MdDelete } from "react-icons/md";
 import { IoDocumentText } from "react-icons/io5";
 import { FaFileCircleXmark } from "react-icons/fa6";
-import { api_base_url } from '../../Helper';
-import { useNavigate } from 'react-router-dom';
+import { api_base_url } from '@/Helper';
+import { useRouter } from 'next/router';
 
 export default function Docs({ docs }) {
-    const navigate = useNavigate()
+    const router = useRouter()
     const [deleteModelShow, setDeleteModelShow] = useState(false);
     const docId = docs._id;
 
@@ -40,7 +40,7 @@ export default function Docs({ docs }) {
     return (
         <>
             <div id={docId} key={docId}  className='docs cursor-pointer rounded-lg flex items-center mt-2 justify-between p-[10px] bg-[#F0F0F0] transition-all hover:bg-[#F5F5F5]'>
-                <div onClick={()=>{ navigate(`/createDocs/${docs._id}`)}} className='left flex items-center gap-2'>
+                <div onClick={()=>{ router.push(`/createDocs/${docs._id}`)}} className='left flex items-center gap-2'>
                     <i className='text-blue-700 text-5xl'><IoDocumentText /></i>
                     <div>
                         <h3 className='text-[20px]'>{docs.title}</h3>

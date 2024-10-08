@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import './ChatItem.css'
 import { FaVideo } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { FaInfoCircle } from "react-icons/fa";

@@ -1,5 +1,4 @@
 import React from 'react'
-import './Solicitation.css'
 import { BsThreeDots } from "react-icons/bs";
 import { FaRegCircleXmark } from "react-icons/fa6";
 import { FaRegCircleCheck } from "react-icons/fa6";

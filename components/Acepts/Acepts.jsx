@@ -1,13 +1,12 @@
 import React from 'react'
-import './Acepts.css'
 import { MdArticle } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from "next/router";
 
 export default function Acepts({ data }) {
-  const navigate = useNavigate()
+  const router = useRouter()
   const goToDoc = ()=>{
-    navigate(`/createDocs/${data?.link}`)
+    router.push(`/createDocs/${data?.link}`)
   }
   return (
     <div id='rejectedContainer' className='w-full flex flex-row items-center justify-between bg-blend-lighten gap-3 py-3 hover:bg-cyan-50'>

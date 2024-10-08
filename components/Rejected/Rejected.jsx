@@ -1,5 +1,4 @@
 import React from 'react'
-import './Rejected.css'
 import { BsThreeDots } from "react-icons/bs";
 
 export default function Rejected() {

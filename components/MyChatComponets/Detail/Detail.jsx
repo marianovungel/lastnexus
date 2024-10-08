@@ -1,5 +1,4 @@
 import React from 'react'
-import './Detail.css'
 import { auth, db } from '../../../lib/firebase';
 import { useChatStore } from '../../../lib/chatStore';
 import { useUserStore } from '../../../lib/userStore';

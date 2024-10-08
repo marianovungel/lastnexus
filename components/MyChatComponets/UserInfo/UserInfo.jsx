@@ -1,5 +1,4 @@
 import React from 'react'
-import './UserInfo.css'
 import { FaVideo } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
