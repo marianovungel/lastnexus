@@ -3,15 +3,15 @@ import { FaVideo } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { FaInfoCircle } from "react-icons/fa";
 import { IoMdImage } from "react-icons/io";
-// import { FaCamera } from "react-icons/fa";
-// import { FaMicrophone } from "react-icons/fa6";
 import EmojiPicker from 'emoji-picker-react';
 import { arrayUnion, doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
-import { db } from '../../../lib/firebase';
-import { useChatStore } from '../../../lib/chatStore';
 import { toast } from 'react-toastify';
-import { useUserStore } from '../../../lib/userStore';
-import upload from '../../../lib/upload'
+import upload from '@/lib/upload';
+import { useUserStore } from '@/lib/userStore';
+import { useChatStore } from '@/lib/chatStore';
+import { db } from '@/lib/firebase';
+import Image from 'next/image';
+import ImojiOne from '@/images/emoje1.png';
 const AvatarULR = "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
 
 
@@ -159,7 +159,7 @@ export default function ChatItem() {
         </div>
         <input value={text} type="text" placeholder={(isReceiverBlocked || isCurrentUserBlocked) ? "Não podes enviar Mensagem": "mensagem..."} onChange={(e)=> setText(e.target.value)} disabled={isReceiverBlocked || isCurrentUserBlocked} />
         <div className="emoji">
-          <img src="./image/emoje1.png" alt="" onClick={()=>setOpen((prev)=> !prev)} />
+          <Image src={ImojiOne} alt='Imoji img' className='object-cover' onClick={()=>setOpen((prev)=> !prev)} />
           <div className="picker">
             <EmojiPicker open={open} onEmojiClick={handleEmoji} />
           </div>

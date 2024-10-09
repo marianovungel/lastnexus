@@ -15,11 +15,11 @@ export default function MenuRight() {
       {/* <FaUserCircle size={30} color="gray"/> */}
       <img className='w-8 h-8 rounded-full object-cover' src={currentUser?.avatar ? currentUser?.avatar : AvatarULR } alt="" />
       </button>
-    <div className="dropdown-content">
-        <div onClick={()=> router.push("/profile#sobre")}>Meu Perfil</div>
-        <div onClick={()=> router.push("/profile#colaborar")}>Novo Artigo</div>
-        <div onClick={()=> router.push("/profile#artigo")}>Meus Artigos</div>
-        <div onClick={()=> router.push("/profile#grupo")}>Meus Grupos</div>
+    <div className="dropdown-content p-0 rounded-md">
+        <div onClick={()=> router.push("/profile#sobre")} className='w-full p-2 rounded-t-md font-semibold text-[#666] hover:cursor-pointer hover:bg-[#999]'>Meu Perfil</div>
+        <div onClick={()=> router.push("/profile#colaborar")} className='w-full p-2 font-semibold text-[#666] hover:cursor-pointer hover:bg-[#999]'>Novo Artigo</div>
+        <div onClick={()=> router.push("/profile#artigo")} className='w-full p-2 font-semibold text-[#666] hover:cursor-pointer hover:bg-[#999]'>Meus Artigos</div>
+        <div onClick={()=> router.push("/profile#grupo")} className='w-full p-2 rounded-b-md  font-semibold text-[#666] hover:cursor-pointer hover:bg-[#999]'>Meus Grupos</div>
     </div>
     </div>
   )

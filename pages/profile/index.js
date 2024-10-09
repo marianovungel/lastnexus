@@ -8,7 +8,6 @@ import { ArtigoList, GrupList, SobreProfileUser } from '@/components';
 import { useRouter } from 'next/router';
 import { useUserStore } from '@/lib/userStore';
 import { api_base_url } from '@/Helper';
-const AvatarULR = "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
 
 
 export default function Profile() {
@@ -66,14 +65,15 @@ export default function Profile() {
         <div id='fullscreenProfile' className='w-full py-4 shadow-md'>
             <div id='rejectedContainer' className='w-3/4 mx-auto flex flex-row items-center justify-between bg-blend-lighten gap-3 py-2'>
                 <div className='flex flex-row items-center justify-start gap-3 px-3'>
-                    <img className='w-40 h-40  rounded-full object-cover' src={currentUser?.avatar} alt="" />
-                    <Image 
-                        src={currentUser?.avatar} 
-                        alt={currentUser?.name} 
-                        width={160} // Defina a largura (em pixels)
-                        height={160} // Defina a altura (em pixels)
-                        className='rounded-full object-cover'
-                    />
+                    {currentUser?.avatar && 
+                        <Image 
+                            src={currentUser?.avatar} 
+                            alt="User Img"
+                            width={160} // Defina a largura (em pixels)
+                            height={160} // Defina a altura (em pixels)
+                            className='w-40 h-40  rounded-full object-cover'
+                        />
+                    }
                     <div className='flex flex-col items-start justify-center gap-1'>
                         <b className='font-medium text-3xl'>{currentUser?.username}</b>
                         <p>{currentUser?.email}</p>
