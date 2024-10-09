@@ -15,7 +15,7 @@ export default function WellCome() {
         <h1 id='headerWellcome'>para escrever artigos científico</h1>
         <p 
           style={{color:"#666"}}
-          className=' font-medium text-3xl py-8'>
+          className=' font-medium text-3xl py-8 flex justify-center text-center'>
           Crie grupos, participe de reuniões e colabore na escrita de artigos acadêmicos.
         </p>
         <div className='flex flex-row items-center justify-center gap-8 py-8'>

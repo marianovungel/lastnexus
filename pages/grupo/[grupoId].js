@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { FaBook } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa6";
-import { SobreProfile, ArtigoList, GrupList } from '../components/index';
 import { FaUsers } from "react-icons/fa";
-import { useLocation, useNavigate } from 'react-router-dom';
-import { api_base_url } from '../Helper';
+import { ArtigoList, GrupList, SobreProfile } from '@/components';
+import { useRouter } from 'next/router';
+import { api_base_url } from '@/Helper';
 
 export default function Grup() {
     const [show, setShow] = useState("sobre")
     const [datas, setDatas] = useState({})
     const [artList, setArtList] = useState([])
-    const location = useLocation();
-    const navigate = useNavigate()
-
-    const path = location.pathname.split("/")[2]
-    console.log(path)
+    const router = useRouter()
+    const { grupoId } = router.query;
 
     const MenuSetting =(menuItems)=>{
         setShow(menuItems)
@@ -31,7 +28,7 @@ export default function Grup() {
                 "Content-Type":"application/json",
               },
               body: JSON.stringify({
-                grupId: path,
+                grupId: grupoId,
               }),
             })
             .then((res)=> res.json())
@@ -48,7 +45,7 @@ export default function Grup() {
                     "Content-Type":"application/json",
                   },
                   body: JSON.stringify({
-                    userId: path,
+                    userId: grupoId,
                   }),
                 })
                 .then((res)=> res.json())
@@ -59,7 +56,7 @@ export default function Grup() {
 
             getData()
             getArtigoList()
-    }, [path])
+    }, [grupoId])
 
     
 
@@ -73,13 +70,13 @@ export default function Grup() {
                         <small>GRUPO</small>
                         <b className='font-medium text-3xl'>{datas?.name}</b>
                         <p>{datas?.desc}</p>
-                        <small>Desde: <i>{new  Date(datas.date).toDateString()}</i></small>
+                        <small>Desde: <i>{new  Date(datas?.date).toDateString()}</i></small>
                     </div>
                 </div>
                 <div className='px-3 h-full flex flex-col items-end justify-center gap-3'>
                     <FaUserPlus size={24} color='gray' className='cursor-pointer hover:text-[#000]' />
                     <div className='flex flex-row items-center justify-end gap-3'>
-                        <button onClick={()=> navigate(`/novo-artigo-grupo/${path}`)} className='px-3 py-2 bg-[#23272F] text-white text-bold flex flex-row justify-center items-center rounded-lg gap-2 border-0'><FaBook size={24} /> Novo Artigo</button>
+                        <button onClick={()=> router.push(`/novo-artigo-grupo/${path}`)} className='px-3 py-2 bg-[#23272F] text-white text-bold flex flex-row justify-center items-center rounded-lg gap-2 border-0'><FaBook size={24} /> Novo Artigo</button>
                         <button className='px-3 py-2 text-[#23272F] text-bold flex flex-row justify-center items-center rounded-lg border-1 gap-2 border-[#23272F]'><FaUsers size={24} /> Editar</button>
                     </div>
                 </div>

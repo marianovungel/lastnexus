@@ -46,7 +46,7 @@ export default function Editor() {
 
       if (data.success) {
         setCreateModelShow(false);
-        router.push(`/createDocs/${data.docId}`); // Usando router para navegação
+        router.push(`/createdocs/${data.docId}`); // Usando router para navegação
       } else {
         setError(data.message);
         toast.error(data.message); // Corrigido: exibir a mensagem de erro correta

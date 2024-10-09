@@ -12,6 +12,7 @@ import { useChatStore } from '@/lib/chatStore';
 import { db } from '@/lib/firebase';
 import Image from 'next/image';
 import ImojiOne from '@/images/emoje1.png';
+import { useRouter } from 'next/router';
 const AvatarULR = "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
 
 
@@ -19,6 +20,7 @@ export default function ChatItem() {
   const [chat, setChat] = useState()
   const [open, setOpen] = useState(false)
   const [text, setText] = useState("")
+  const router = useRouter()
   const [img, setImg] = useState({
     file: null,
     url: "",
@@ -123,7 +125,7 @@ export default function ChatItem() {
         </div>
         <div className="icons">
           <IoCall size={20} color='#444' />
-          <FaVideo size={20} color='#444' />
+          <FaVideo className='hover:color-[#222] hover:cursor-pointer' size={20} color='#444' onClick={router.push("/video")} />
           <FaInfoCircle size={20} color='#444' />
         </div>
       </div>

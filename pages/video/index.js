@@ -21,13 +21,13 @@ export default function Home() {
   }
   return (
     <div className={styles.homeContainer}>
-        <h1>Google Meet Clone</h1>
+        <h1>Crie ou Participe de Reunião</h1>
         <div className={styles.enterRoom}>
-          <input placeholder='Enter Room ID' value={roomId} onChange={(e) => setRoomId(e?.target?.value)}/>
-          <button onClick={joinRoom}>Join Room</button>
+          <input placeholder='Código da Sala' value={roomId} onChange={(e) => setRoomId(e?.target?.value)}/>
+          <button className='px-4 py-2 bg-[#1f8ef1] text-bold text-white rounded-md bottom-0 shadow-md cursor-pointer' onClick={joinRoom}>Join Room</button>
         </div>
         <span  className={styles.separatorText} >--------------- OR ---------------</span>
-        <button onClick={createAndJoin}>Create a new room</button>
+        <button className='px-4 py-2 bg-[#1f8ef1] text-bold text-white rounded-md bottom-0 shadow-md cursor-pointer' onClick={createAndJoin}>Create a new room</button>
     </div>
   )
 }
