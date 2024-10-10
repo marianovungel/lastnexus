@@ -19,7 +19,7 @@ export default function WellCome() {
           Crie grupos, participe de reuniões e colabore na escrita de artigos acadêmicos.
         </p>
         <div className='flex flex-row items-center justify-center gap-8 py-8'>
-          <div onClick={goTo} className='px-7 py-3 bg-[#23272F] text-white text-bold flex flex-row justify-center items-center gap-2 rounded-lg border-0 cursor-pointer'><FaBook size={24} /> Novo Artigo</div>
+          <div onClick={goTo} className='px-7 py-3 bg-[#23272F] text-white text-bold flex flex-row justify-center items-center gap-2 rounded-lg cursor-pointer border-2 border-slate-800'><FaBook size={24} /> Novo Artigo</div>
           <button className='px-7 py-3 text-[#23272F] text-bold flex flex-row justify-center items-center gap-2 rounded-lg border-2 border-slate-800'>
             {/* <FcGoogle size={24} /> */}
             Fazer login

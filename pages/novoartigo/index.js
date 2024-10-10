@@ -91,6 +91,7 @@ export default function NovoArtigo() {
 
   return (
     <div className='w-2/4 pb-3 mt-3 mx-auto flex flex-col justify-start items-center gap-3'>
+      <h1 className='text-xl font-semibold text-[#666] w-full border-[#ddd] border-b-2 text-center py-3'>Criar Novo Artigo</h1>
       <div className='w-full flex justify-between items-center gap-3'>
         <p>Tema do Artigo</p>
         <input onChange={(e)=>setTitle(e.target.value)} type="text" placeholder='Tema' className='p-2 outline-none shadow-md rounded-md w-3/4 text-[#666]' />

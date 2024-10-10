@@ -125,7 +125,7 @@ export default function ChatItem() {
         </div>
         <div className="icons">
           <IoCall size={20} color='#444' />
-          <FaVideo className='hover:color-[#222] hover:cursor-pointer' size={20} color='#444' onClick={router.push("/video")} />
+          <FaVideo className='hover:color-[#222] hover:cursor-pointer' size={20} color='#444' onClick={()=> router.push("/video")} />
           <FaInfoCircle size={20} color='#444' />
         </div>
       </div>
