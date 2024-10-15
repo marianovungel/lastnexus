@@ -131,9 +131,9 @@ export default function ChatItem() {
       </div>
       <div className="center scrollNone">
         {chat?.messages.map((message)=>(
-          <div className={message.senderId === currentUser.id ? "message own" : "message"} key={message?.createdAt.seconds}>
+          <div className={message?.senderId === currentUser?.id ? "message own" : "message"} key={message?.createdAt.seconds}>
             <div className="texts">
-              {message.img && 
+              {message?.img && 
                 <img src={message?.img} alt="" />
               }
               <p>

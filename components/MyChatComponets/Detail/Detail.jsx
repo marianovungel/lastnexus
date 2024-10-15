@@ -1,15 +1,18 @@
+"use client";
 import React from 'react'
 import { auth, db } from '../../../lib/firebase';
 import { useChatStore } from '../../../lib/chatStore';
 import { useUserStore } from '../../../lib/userStore';
 import { arrayRemove, arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
 const AvatarULR = "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
 
 
 export default function Detail() {
   const { user, isReceiverBlocked, changeBlock, isCurrentUserBlocked } = useChatStore()
   const { currentUser } = useUserStore()
+  const router = useRouter();
 
   const handleBlock = async ()=>{
     if(!user) return;
@@ -27,6 +30,17 @@ export default function Detail() {
       toast.error(error.message)
     }
   }
+
+  const handleLogout = () => {
+    auth.signOut()
+      .then(() => {
+        router.push('/login');
+      })
+      .catch((error) => {
+        console.error('Erro ao deslogar:', error);
+      });
+  };
+
   return (
     <div className='detail'>
       <div className="user">
@@ -43,7 +57,7 @@ export default function Detail() {
             : "Bloquear usuário"
           }
         </button>
-        <button className='logout' onClick={()=> auth.signOut()}>Logout</button>
+        <button className='logout' onClick={ handleLogout}>Sair</button>
       </div>
     </div>
   )

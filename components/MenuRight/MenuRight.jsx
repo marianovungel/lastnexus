@@ -3,12 +3,23 @@ import React from 'react'
 import { useUserStore } from "../../lib/userStore";
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { auth } from '@/lib/firebase';
 
 const AvatarULR = "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
 
 export default function MenuRight() {
   const { currentUser } = useUserStore()
   const router = useRouter()
+
+  const handleLogout = () => {
+    auth.signOut()
+      .then(() => {
+        router.push('/login');
+      })
+      .catch((error) => {
+        console.error('Erro ao deslogar:', error);
+      });
+  };
 
   return (
     <div className="dropdown">
@@ -29,7 +40,7 @@ export default function MenuRight() {
         <div onClick={()=> router.push("/profile#colaborar")} className='w-full p-2 font-semibold text-[#666] hover:cursor-pointer hover:bg-[#999]'>Novo Artigo</div>
         <div onClick={()=> router.push("/profile#artigo")} className='w-full p-2 font-semibold text-[#666] hover:cursor-pointer hover:bg-[#999]'>Meus Artigos</div>
         <div onClick={()=> router.push("/profile#grupo")} className='w-full p-2  font-semibold text-[#666] hover:cursor-pointer hover:bg-[#999]'>Meus Grupos</div>
-        <div onClick={()=> auth.signOut()} className='w-full p-2 rounded-b-md  font-semibold text-[#666] hover:cursor-pointer hover:bg-[#999]'>Sair</div>
+        <div onClick={handleLogout} className='w-full p-2 rounded-b-md  font-semibold text-[#666] hover:cursor-pointer hover:bg-[#999]'>Sair</div>
     </div>
     </div>
   )
