@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaBook } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
-import { ArtigoList, GrupList, SobreProfile } from '@/components';
+import { ArtigoList, GrupList, MenuLeft, SobreProfile } from '@/components';
 import { useRouter } from 'next/router';
 import { api_base_url } from '@/Helper';
 
@@ -84,6 +84,7 @@ export default function Grup() {
             
         </div>
 
+        <MenuLeft grup={datas?.name} room={grupoId} />
         <section className='w-3/5 flex flex-row h-full items-start justify-between gap-2 mx-auto mt-3'>
             <div className='w-60 flex flex-col justify-start items-start'>
                 <h3 className='w-full flex justify-start pl-6 items-center py-2 hover:bg-cyan-50 text-xl text-[#111] font-medium bg-cyan-50 rounded-md cursor-pointer' onClick={()=> MenuSetting("sobre")}> Sobre</h3>

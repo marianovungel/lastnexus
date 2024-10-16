@@ -23,9 +23,77 @@
 
 
 
+.messageContainer {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 
+.messageContainer::-webkit-scrollbar {
+  display: none;
+}
+.messageContainermessage {
+  height: auto;
+  padding: 10px;
+  display: flex;
+}
 
+.messageContainermessage .messageContent {
+  width: auto;
+  height: auto;
+  min-height: 40px;
+  max-width: 120px;
+  background-color: #43a047;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+#you {
+  justify-content: flex-start;
+}
 
+#you .messageContent {
+  justify-content: flex-start;
+}
+
+#you .messageMeta {
+  justify-content: flex-start;
+  margin-left: 5px;
+}
+
+#other {
+  justify-content: flex-end;
+}
+
+#other .messageContent {
+  justify-content: flex-end;
+  background-color: cornflowerblue;
+}
+
+#other .messageMeta {
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+
+.messageMeta #author {
+  margin-left: 10px;
+  font-weight: bold;
+}
+.messageMeta {
+  display: flex;
+  font-size: 12px;
+}
+.hide {
+  opacity: 0 !important;
+}
 
 
 
@@ -207,11 +275,12 @@ input[type="checkbox"]:hover {
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
+  /* left: 0; */
+  right: 0;
   background-color: #F5F5F5;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 90px;
 }
 
 .sidebar a {
