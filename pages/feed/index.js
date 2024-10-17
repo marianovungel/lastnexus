@@ -5,6 +5,7 @@ import { IoMdSearch } from "react-icons/io";
 import { ArtigoCard } from '@/components';
 import { useUserStore } from '@/lib/userStore';
 import Image from 'next/image';
+const AvatarULR = "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
 
 export default function Feed() {
   const { superUser } = useUserStore()
