@@ -25,6 +25,7 @@ function Menu() {
         src={LogoNexus}
         alt='Logo Nexto'
         className='cursor-pointer w-24 object-cover ml-6'
+        fetchpriority="high"
         onClick={()=> router.push("/")} 
        />
       <div id='searchId' className="mx-5 md:mx-20 flex flex-grow items-center px-2 py-2 bg-gray-100 text-gray-600 rounded-lg focus-within:text-gray-600 focus-within:shadow-md">

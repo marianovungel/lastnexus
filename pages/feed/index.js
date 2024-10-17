@@ -3,6 +3,7 @@ import { PiReadCvLogoFill } from "react-icons/pi";
 import { IoMdSearch } from "react-icons/io";
 import { ArtigoCard } from '@/components';
 import { useUserStore } from '@/lib/userStore';
+import Image from 'next/image';
 
 export default function Feed() {
   const { superUser } = useUserStore()
@@ -27,7 +28,16 @@ export default function Feed() {
             </div>
         </div>
         <div className="w-1/5 rounded-md shadow-md p-3 flex flex-col justify-center items-center">
-          <img src={superUser?.avatar} alt="logo nexus plataforma" className="w-20 rounded-full"/>
+          {/* <img src={superUser?.avatar} alt="logo nexus plataforma" className="w-20 rounded-full"/> */}
+          <Image
+                src={superUser?.avatar ? superUser?.avatar : AvatarULR }
+                alt="User"
+                width={100}
+                height={100}
+                priority={true}
+                fetchpriority="high"
+                className='w-20 h-20 rounded-full'
+              />
           <h2 className='pt-2 text-lg font-semibold text-[#333] font-mono'>{superUser?.username}</h2>
           <small>{superUser?.desc ? superUser?.desc : `Desde: ${new Date(superUser?.date).toDateString()}`}</small>
           <small>Área de interesse</small>

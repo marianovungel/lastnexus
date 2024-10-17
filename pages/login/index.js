@@ -7,6 +7,8 @@ import { api_base_url } from '@/Helper'
 import { auth, db } from '@/lib/firebase';
 import upload from '@/lib/upload';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+const AvatarULR = "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
 
 export default function Login() {
   const router = useRouter();
@@ -118,7 +120,16 @@ export default function Login() {
           <h2>Criar conta.</h2>
           <form className='flex flex-col items-center justify-center gap-5' onSubmit={handleRegister}>
             <label className='w-full flex items-center justify-between cursor-pointer' htmlFor="file">
-              <img className='w-10 h-10 rounded-full object-cover' src={avatar.url || "default-avatar.png"} alt="" />
+              {/* <img className='w-10 h-10 rounded-full object-cover' src={avatar.url || "default-avatar.png"} alt="" /> */}
+              <Image 
+                src={avatar.url ? avatar.url : AvatarULR }
+                alt="User"
+                width={100}
+                height={100}
+                priority={true}
+                fetchpriority="high"
+                className='w-10 h-10 rounded-full object-cover'
+              />
               Adicionar foto do perfil
             </label>
             <input className='p-5 border-none outline-none bg-[rgba(17, 25, 40, 0.6)] text-[#666] rounded-[5px]' type="file" id='file' style={{ display: "none" }} onChange={handleAvatar} />

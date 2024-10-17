@@ -26,12 +26,13 @@ export default function MenuRight() {
     <button className="dropbtn">
       {/* <FaUserCircle size={30} color="gray"/> */}
       <Image 
-      src={currentUser?.avatar ? currentUser?.avatar : AvatarULR }
-      alt="User"
-      width={100}
-      height={100}
-      priority={true}
-      className='w-8 h-8 rounded-full object-cover'
+        src={currentUser?.avatar ? currentUser?.avatar : AvatarULR }
+        alt="User"
+        width={100}
+        height={100}
+        priority={true}
+        fetchpriority="high"
+        className='w-8 h-8 rounded-full object-cover'
 
       />
       </button>

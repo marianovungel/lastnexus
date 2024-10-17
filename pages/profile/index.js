@@ -71,6 +71,7 @@ export default function Profile() {
                             alt="User Img"
                             width={160} // Defina a largura (em pixels)
                             height={160} // Defina a altura (em pixels)
+                            fetchpriority="high"
                             className='w-40 h-40  rounded-full object-cover'
                         />
                     }
