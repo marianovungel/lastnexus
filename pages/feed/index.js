@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import { PiReadCvLogoFill } from "react-icons/pi";
 import { IoMdSearch } from "react-icons/io";
