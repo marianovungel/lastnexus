@@ -28,10 +28,24 @@ export default function ChatGrup({ socket, username, room }) {
     }
   };
 
+  // useEffect(() => {
+  //   socket.on("recive_message", (data) => {
+  //     setMessageList((list) => [...list, data]);
+  //   });
+  // }, [socket]);
   useEffect(() => {
-    socket.on("recive_message", (data) => {
-      setMessageList((list) => [...list, data]);
+    // Ouve as mensagens recebidas do socket
+    socket.on("receive_message", (data) => {
+      setCurrentMessage((prevContent) => {
+        // Adiciona o novo conteúdo recebido ao existente
+        return data.message; // Aqui, pode ser ajustado para concatenar ou outra lógica desejada
+      });
     });
+
+    // Limpa o evento ao desmontar o componente
+    return () => {
+      socket.off("receive_message");
+    };
   }, [socket]);
 
   useEffect(() => {

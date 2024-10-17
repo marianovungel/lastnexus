@@ -29,15 +29,15 @@ export default function App({ Component, pageProps }) {
     }
   }, [fetchUserInfo])
 
-  useEffect(() => {
-    // Simulando a verificação de autenticação
-    const isAuthenticated = currentUser; // Função para checar se o usuário está logado
+  // useEffect(() => {
+  //   // Simulando a verificação de autenticação
+  //   const isAuthenticated = currentUser; // Função para checar se o usuário está logado
 
-    if (!isAuthenticated && !noAuthRequired.includes(router.pathname)) {
-      // Se o usuário não estiver logado e a rota não for pública, redireciona para login
-      router.push('/login');
-    }
-  }, [router.pathname]);
+  //   if (!isAuthenticated && !noAuthRequired.includes(router.pathname)) {
+  //     // Se o usuário não estiver logado e a rota não for pública, redireciona para login
+  //     router.push('/login');
+  //   }
+  // }, [router.pathname]);
 
 
 

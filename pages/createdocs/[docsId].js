@@ -2,16 +2,13 @@
 
 import { useRouter } from "next/router";
 import React, { useState, useRef, useEffect } from "react";
-import dynamic from "next/dynamic"; // Importa dinamicamente o JoditEditor
+// Importa dinamicamente o JoditEditor
 import { useUserStore } from "@/lib/userStore";
 import { api_base_url } from "@/Helper";
+import Socketeditor from "@/components/MyEditorComponents/Socketeditor";
+import io from 'socket.io-client';
 
-// Carrega o JoditEditor apenas no cliente, evitando o erro do lado do servidor
-const JoditEditor = dynamic(() => import("jodit-pro-react"), {
-    ssr: false, // Desabilita a renderização no lado do servidor
-    loading: () => <p>Carregando editor...</p>, // Mostra um fallback enquanto o editor carrega
-});
-
+const socket = io.connect("https://editor-socket-back.onrender.com")
 export default function CreateDocs() {
   const router = useRouter();
   const { docsId } = router.query;
@@ -121,18 +118,7 @@ export default function CreateDocs() {
   return (
     <>
       {showEditor ? (
-        <div className="px-[100px] mt-3 mx-auto w-3/5 lg:w-1/2 md:w-3/4 sm:w-full sm:px-0">
-          <JoditEditor
-            ref={editor}
-            value={content}
-            config={config}
-            tabIndex={1}
-            onChange={(newContent) => {
-              setContent(newContent);
-              updateDoc();
-            }}
-          />
-        </div>
+        <Socketeditor socket={socket} username={currentUser?.username} room={docsId} config={config} />
       ) : (
         <div className="w-full h-full flex justify-center items-start text-2xl pt-3">
           Usuário Não Autorizado...

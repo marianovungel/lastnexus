@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react'
 import { RiMenuFold3Line2 } from "react-icons/ri";
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { PiChatDotsFill, PiChatSlashFill } from "react-icons/pi";
 import ChatGrup from '../ChatGrup/ChatGrup';
 import { useUserStore } from '@/lib/userStore';
@@ -11,7 +11,7 @@ const socket = io.connect("https://chat-socket-io-backend-eshj.onrender.com/")
 
 export default function MenuLeft({grup, room}) {
     const [openVariable, setopenVariable] = useState(false)
-    const router = useRouter()
+    // const router = useRouter()
     const { currentUser } = useUserStore()
 
     const joinRoom = () =>{
