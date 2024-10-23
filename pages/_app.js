@@ -15,8 +15,7 @@ export default function App({ Component, pageProps }) {
   // Rotas que não requerem autenticação
   const noAuthRequired = ['/', '/login'];
 
-  const { // isLoading, // supernotification, 
-    currentUser,
+  const { // isLoading, // supernotification, //currentUser,
     fetchUserInfo 
   } = useUserStore()
 
@@ -42,7 +41,7 @@ export default function App({ Component, pageProps }) {
 
 
 
-  console.log(currentUser)
+  // console.log(currentUser)
 
 
   return (
