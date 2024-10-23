@@ -7,13 +7,13 @@ import { useUserStore } from "@/lib/userStore";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { auth } from "@/lib/firebase";
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { UserProvider } from "@/context/UseContext";
 
 export default function App({ Component, pageProps }) {
-  const router = useRouter();
+  // const router = useRouter();
   // Rotas que não requerem autenticação
-  const noAuthRequired = ['/', '/login'];
+  // const noAuthRequired = ['/', '/login'];
 
   const { // isLoading, // supernotification, //currentUser,
     fetchUserInfo 
