@@ -8,6 +8,7 @@ import { ArtigoList, GrupList, SobreProfileUser } from '@/components';
 import { useRouter } from 'next/router';
 import { useUserStore } from '@/lib/userStore';
 import { api_base_url } from '@/Helper';
+import { useUser } from '@/context/UseContext';
 
 
 export default function Profile() {
@@ -15,6 +16,17 @@ export default function Profile() {
     const [datas, setDatas] = useState([])
     const { currentUser, superUser } = useUserStore()
     const router = useRouter()
+    const { user } = useUser();
+    
+    useEffect(()=>{
+        const VerifyUser =()=>{
+        if(!user){
+            router.push("/login");
+        }
+        }
+
+        VerifyUser()
+    }, [])
 
     
 

@@ -3,11 +3,25 @@ import { FaArrowAltCircleUp, FaArrowAltCircleDown } from "react-icons/fa";
 import { Acepts, Rejected, Solicitation } from '@/components';
 import { api_base_url } from '@/Helper';
 import { useUserStore } from '@/lib/userStore';
+import { useRouter } from 'next/router';
+import { useUser } from '@/context/UseContext';
 
 export default function Notification() {
   const [show, setShow] = useState(false)
   const [datas, setDatas] = useState([])
   const { currentUser } = useUserStore()
+  const router = useRouter()
+  const { user } = useUser();
+    
+    useEffect(()=>{
+        const VerifyUser =()=>{
+        if(!user){
+            router.push("/login");
+        }
+        }
+
+        VerifyUser()
+    }, [])
 
   const setGerenciar = () => {
     setShow(!show);

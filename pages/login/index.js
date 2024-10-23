@@ -8,10 +8,14 @@ import { auth, db } from '@/lib/firebase';
 import upload from '@/lib/upload';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { useUser } from '@/context/UseContext';
+import { useUserStore } from '@/lib/userStore';
 const AvatarULR = "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
 
 export default function Login() {
   const router = useRouter();
+  const { login } = useUser();
+  const { currentUser } = useUserStore()
   const [loading, setLoading] = useState(false);
   const [avatar, setAvatar] = useState({
     file: null,
@@ -80,6 +84,11 @@ export default function Login() {
     }
   };
 
+  const handleLoginStorage = (data) => {
+    const userData = data;
+    login(userData);
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -89,12 +98,10 @@ export default function Login() {
 
     try {
       const dataResponse = await signInWithEmailAndPassword(auth, email, password);
-      console.log(dataResponse);
-
-      setTimeout(() => {
-        console.log("Redirecionando...");
-        router.push("/feed");
-      }, 3000);
+      if(dataResponse.user.email){
+        handleLoginStorage({token: dataResponse?.user.accessToken, email: dataResponse?.user.email, id:dataResponse?.user.uid, username:currentUser.username, avatar:currentUser.avatar});
+      }
+      router.push("/feed");
 
     } catch (error) {
       toast.error(error.message);

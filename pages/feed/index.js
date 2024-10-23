@@ -1,15 +1,30 @@
 "use client";
-import React from 'react'
+import React, { useEffect } from 'react'
 import { PiReadCvLogoFill } from "react-icons/pi";
 import { IoMdSearch } from "react-icons/io";
 import { ArtigoCard } from '@/components';
 import { useUserStore } from '@/lib/userStore';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useUser } from '@/context/UseContext';
 const AvatarULR = "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
 
 export default function Feed() {
   const { superUser } = useUserStore()
-  console.log(superUser)
+  const { user } = useUser();
+  const router = useRouter();
+  
+  useEffect(()=>{
+    const VerifyUser =()=>{
+      console.log(user)
+      if(!user){
+        router.push("/login");
+      }
+    }
+
+    VerifyUser()
+  }, [])
+
   return (
     <div className='w-3/4 mx-auto my-3 flex flex-row items-start justify-between'>
         <div className="w-1/5 rounded-md shadow-md p-3 flex flex-col justify-center items-start">

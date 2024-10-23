@@ -24,7 +24,7 @@ export default function ArtigoCard() {
     }
 
     const getData = async () => {
-    if (!currentUser || !currentUser.id) {
+    if (!currentUser || !currentUser?.id) {
         console.error("Current user not found");
         return;
     }
@@ -36,7 +36,7 @@ export default function ArtigoCard() {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            userId: currentUser.id,
+            userId: currentUser?.id,
         }),
     })
     .then((res) => res.json())
@@ -62,8 +62,8 @@ export default function ArtigoCard() {
             type: 3, 
             link: docId, 
             ArtigoName: title,
-            usernotify: currentUser.id, 
-            text: `${superUser.name} Solicitou Para Ser Colaborador No Seu Artigo ${title}`, 
+            usernotify: currentUser?.id, 
+            text: `${superUser?.name} Solicitou Para Ser Colaborador No Seu Artigo ${title}`, 
           }),
         })
         .then((res)=> res.json())
@@ -101,7 +101,7 @@ export default function ArtigoCard() {
                             <small>Criando no dia: { new Date(dt?.date).toDateString()}</small>
                         </div>
                     </div>
-                    {dt.autorId === currentUser.id ?
+                    {dt.autorId === currentUser?.id ?
                     (
                         <button className='bg-[#004AAD] px-3 py-2 text-white text-md flex flex-row justify-center items-center rounded-lg border-0'>Acessar</button>
                     ) : (
