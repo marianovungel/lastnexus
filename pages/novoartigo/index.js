@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/router'
@@ -20,7 +21,7 @@ export default function NovoArtigo() {
  
 
   const CreateDocument =()=>{
-
+      console.log("Função Executada")
       if( title === "" || desc === "" ){
         toast.error("Título e o Resumo é Obrigatório!")
       }else{
@@ -45,8 +46,10 @@ export default function NovoArtigo() {
         })
         .then((res)=> res.json())
           .then((data)=>{
+            console.log(data)
               if(data.success){
-                router.push(`/createDocs/${data.docId}`);
+                // router.push(`/createDocs/${data.docId}`);
+                console.log("Redirecionando")
               }else{
                   toast.error("Erro ao criar o Documento")
               }
