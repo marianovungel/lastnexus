@@ -48,8 +48,10 @@ export default function NovoArtigo() {
           .then((data)=>{
             console.log(data)
               if(data.success){
+
                 // router.push(`/createDocs/${data.docId}`);
-                console.log("Redirecionando")
+                window.location.replace(`https://nexus-editor.vercel.app/documents/${data?.docId}`)
+                // console.log("Redirecionando")
               }else{
                   toast.error("Erro ao criar o Documento")
               }
