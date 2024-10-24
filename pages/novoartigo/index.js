@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { useUserStore } from '@/lib/userStore'
 import { api_base_url } from '@/Helper'
 const AvatarULR = "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
+import { v4 as uuidV4 } from "uuid"
 
 export default function NovoArtigo() {
   const router = useRouter();
@@ -30,6 +31,7 @@ export default function NovoArtigo() {
             "Content-Type":"application/json",
           },
           body: JSON.stringify({
+            _id:`${uuidV4()}`,
             title:title,
             resumo:desc,
             uploadedBy: currentUser.id,
