@@ -18,17 +18,17 @@ export default function GrupList() {
             "Content-Type":"application/json",
           },
           body: JSON.stringify({
-            userId: currentUser.id,
+            userId: currentUser?.id,
           }),
         })
         .then((res)=> res.json())
           .then((data)=>{
-              setDatas(data.result)
+              setDatas(data?.result)
           })
         }
 
         getData()
-}, [currentUser.id])
+}, [currentUser?.id])
 
   return (
     <>

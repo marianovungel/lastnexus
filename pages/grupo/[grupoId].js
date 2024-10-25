@@ -76,7 +76,7 @@ export default function Grup() {
                 <div className='px-3 h-full flex flex-col items-end justify-center gap-3'>
                     <FaUserPlus size={24} color='gray' className='cursor-pointer hover:text-[#000]' />
                     <div className='flex flex-row items-center justify-end gap-3'>
-                        <button onClick={()=> router.push(`/novo-artigo-grupo/${path}`)} className='px-3 py-2 bg-[#23272F] text-white text-bold flex flex-row justify-center items-center rounded-lg gap-2 border-0'><FaBook size={24} /> Novo Artigo</button>
+                        <button onClick={()=> router.push(`/novoartigogrupo/${grupoId}`)} className='px-3 py-2 bg-[#23272F] text-white text-bold flex flex-row justify-center items-center rounded-lg gap-2 border-0'><FaBook size={24} /> Novo Artigo</button>
                         <button className='px-3 py-2 text-[#23272F] text-bold flex flex-row justify-center items-center rounded-lg border-1 gap-2 border-[#23272F]'><FaUsers size={24} /> Editar</button>
                     </div>
                 </div>
