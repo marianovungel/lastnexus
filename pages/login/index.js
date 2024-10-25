@@ -137,6 +137,17 @@ export default function Login() {
                 fetchpriority="high"
                 className='w-10 h-10 rounded-full object-cover'
               />
+              {!avatar.url &&
+                <Image 
+                src={AvatarULR}
+                alt="User"
+                width={100}
+                height={100}
+                priority={true}
+                fetchpriority="high"
+                className='w-10 h-10 rounded-full object-cover'
+              />
+              }
               Adicionar foto do perfil
             </label>
             <input className='p-5 border-none outline-none bg-[rgba(17, 25, 40, 0.6)] text-[#666] rounded-[5px]' type="file" id='file' style={{ display: "none" }} onChange={handleAvatar} />
