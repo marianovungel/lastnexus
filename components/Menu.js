@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 // import LogoNexus from '@/images/logocortada.png';
 // import BindText from '@/images/bt.png';
+
 import BindText from '@/images/b.png';
 import Left from './Left/Left';
 
