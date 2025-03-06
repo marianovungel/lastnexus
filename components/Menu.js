@@ -6,7 +6,8 @@ import { MenuRight } from './index';
 import { useUserStore } from '../lib/userStore';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import LogoNexus from '@/images/logocortada.png';
+// import LogoNexus from '@/images/logocortada.png';
+import BindText from '@/images/bt.png';
 import Left from './Left/Left';
 
 function Menu() {
@@ -19,10 +20,11 @@ function Menu() {
 
   return (
     <header className=" sticky top-0 z-50 flex items-center px-4 py-2 shadow-md bg-white h-20">
-      <h1 className="ml-2 text-gray-700 text-xl md:hidden sm:hidden">NEXUS</h1>
+      <h1 className="ml-2 text-gray-700 text-xl md:hidden sm:hidden">BindText</h1>
       <Left />
       <Image 
-        src={LogoNexus}
+        // src={LogoNexus}
+        src={BindText}
         alt='Logo Nexto'
         className='cursor-pointer w-24 object-cover ml-6'
         fetchpriority="high"
