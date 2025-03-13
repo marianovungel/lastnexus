@@ -37,7 +37,7 @@ export default function MenuRight() {
 
       />
       )}
-      {!currentUser?.avatar && (<div className="bg-gray-50 ring-1 ring-gray-400 text-[#999] p-1 rounded-s-full"></div>)}
+      {!currentUser?.avatar && (<div className="bg-gray-50 ring-1 ring-gray-400 text-[#999] p-1 rounded-s-full w-4 h-4"></div>)}
       </button>
     <div className="dropdown-content p-0 rounded-md">
         <div onClick={()=> router.push("/profile#sobre")} className='w-full p-2 rounded-t-md font-semibold text-[#666] hover:cursor-pointer hover:bg-[#999]'>Meu Perfil</div>
