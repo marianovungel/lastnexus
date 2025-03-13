@@ -25,7 +25,8 @@ export default function MenuRight() {
     <div className="dropdown">
     <button className="dropbtn">
       {/* <FaUserCircle size={30} color="gray"/> */}
-      <Image 
+      {currentUser?.avatar && (
+        <Image 
         src={currentUser?.avatar ? currentUser?.avatar : AvatarULR }
         alt="User"
         width={100}
@@ -35,6 +36,8 @@ export default function MenuRight() {
         className='w-8 h-8 rounded-full object-cover'
 
       />
+      )}
+      {!currentUser?.avatar && (<div className="bg-gray-50 ring-1 ring-gray-400 text-[#999] p-1 rounded-s-full"></div>)}
       </button>
     <div className="dropdown-content p-0 rounded-md">
         <div onClick={()=> router.push("/profile#sobre")} className='w-full p-2 rounded-t-md font-semibold text-[#666] hover:cursor-pointer hover:bg-[#999]'>Meu Perfil</div>
